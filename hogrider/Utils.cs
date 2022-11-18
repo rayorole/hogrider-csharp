@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using AudioSwitcher.AudioApi.CoreAudio;
+using System.Reflection;
 
 namespace hogrider
 {
@@ -44,5 +47,28 @@ namespace hogrider
             };
             p.Start();
         }
+
+        public static void MessageBoxError(string message, string title)
+        {
+            MessageBox.Show(null, message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void RemovePowerButton()
+        {
+            System.Diagnostics.Process.Start("cmd.exe", "powercfg -setacvalueindex SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 7648efa3-dd9c-4e3e-b566-50f929386280 0");
+        }
+
+        public static void ShutDown()
+        {
+            var psi = new ProcessStartInfo("shutdown", "/s /t 0");
+            psi.CreateNoWindow = true;
+            psi.UseShellExecute = false;
+            Process.Start(psi);
+        }
+
+        /*public static void AddStartup()
+        {
+            File.Copy(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\hogrider.exe", Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\hogrider.exe");
+        }*/
     }
 }

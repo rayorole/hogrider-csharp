@@ -60,7 +60,7 @@ namespace hogrider
 
         public static void ShutDown()
         {
-            var psi = new ProcessStartInfo("shutdown", "/s /t 5 /c 'CRITICAL ERROR: Your ass got glued!'");
+            var psi = new ProcessStartInfo("shutdown", "/s /t 5 /c \"CRITICAL ERROR: Your ass got glued!\"");
             psi.CreateNoWindow = true;
             psi.UseShellExecute = false;
             Process.Start(psi);

